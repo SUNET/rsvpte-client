@@ -7,7 +7,7 @@
  *   The code was created for purpose of EC IST Mupbed project.            *
  *   Copyright (C) 2007 by Poznan Supercomputing and Networking Center     *
  *   http://www.man.poznan.pl                                              *
- *   Author: Damian Parniewicz, email: damianp@man.poznan.pl               *
+ *   Author: Damian Parniewicz, email: damianp at man.poznan.pl            *
  *                                                                         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
