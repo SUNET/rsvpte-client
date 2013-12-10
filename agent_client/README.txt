@@ -1,0 +1,1 @@
+Console client for rsvp agent. It allows manually creation and deletion of gmpls/ason paths.

@@ -1,0 +1,140 @@
+GMPLS Signaling Parameters 
+ - LSP Encoding Type: 8 bits
+ - Switching Type: 8 bits
+ - Generalized PID (G-PID): 16 bits
+
+(last updated 2007-01-24)
+
+LSP Encoding Types (valid range 1-255) - per RFC3471
+Registration Procedures (updated - per RFC4328):
+0-239 IETF Standards Track RFC 
+240-255 Assigned temporarily for Experimental Usage (Not registered with IANA)
+Value   Type                                 Reference
+-----   ---------------------------          ---------
+    1   Packet                               [RFC3471]
+    2   Ethernet                             [RFC3471]
+    3   ANSI/ETSI PDH                        [RFC3471] 
+    4   Reserved                             [RFC3471]
+    5   SDH ITU-T G.707 / SONET ANSI T1.105  [RFC3471]
+    6   Reserved                             [RFC3471]
+    7   Digital Wrapper                      [RFC3471]
+    8   Lambda (photonic)                    [RFC3471]
+    9   Fiber                                [RFC3471]
+   10   Reserved                             [RFC3471]
+   11   FiberChannel                         [RFC3471]
+   12   G.709 ODUk (Digital Path)            [RFC4328]
+   13   G.709 Optical Channel                [RFC4328]
+ 
+Switching Types (valid range 1-255) - per RFC3471
+Registration Procedures (updated - per RFC4328): 0-255 IETF Standards Track RFC
+Value   Type                                  Reference
+-----   ---------------------------           ---------
+    1   Packet-Switch Capable-1 (PSC-1)       [RFC3471]
+    2   Packet-Switch Capable-2 (PSC-2)       [RFC3471]
+    3   Packet-Switch Capable-3 (PSC-3)       [RFC3471]
+    4   Packet-Switch Capable-4 (PSC-4)       [RFC3471]
+   51   Layer-2 Switch Capable  (L2SC)        [RFC3471]
+  100   Time-Division-Multiplex Capable (TDM) [RFC3471]
+  150   Lambda-Switch Capable   (LSC)         [RFC3471]
+  200   Fiber-Switch Capable    (FSC)         [RFC3471]
+
+Generalized PIDs (G-PID)  (valid range 0-1500) - per RFC3471
+Registration Procedures (updated - per RFC4328): 
+0-31743 IETF Standards Track RFC 
+31744-32767 Assigned Temporarily for Experimental Usage 
+32768-65535 Not Assigned
+Value   Type                                   Technology                  Reference
+-----   ---------------------------            -------------------         ---------
+    0   Unknown                                All                         [RFC3471]
+    1   Reserved                                                           [RFC3471]
+    2   Reserved                                                           [RFC3471]
+    3   Reserved                                                           [RFC3471]
+    4   Reserved                                                           [RFC3471]
+    5   Asynchronous mapping of E4             SDH                         [RFC3471]
+    6   Asynchronous mapping of DS3/T3         SDH                         [RFC3471]
+    7   Asynchronous mapping of E3             SDH                         [RFC3471]
+    8   Bit synchronous mapping of E3          SDH                         [RFC3471]
+    9   Byte synchronous mapping of E3         SDH                         [RFC3471]
+   10   Asynchronous mapping of DS2/T2         SDH                         [RFC3471]
+   11   Bit synchronous mapping of DS2/T2      SDH                         [RFC3471]
+   12   Reserved                                                           [RFC3471]
+   13   Asynchronous mapping of E1             SDH                         [RFC3471]
+   14   Byte synchronous mapping of E1         SDH                         [RFC3471]
+   15   Byte synchronous mapping of 31 * DS0   SDH                         [RFC3471]
+   16   Asynchronous mapping of DS1/T1         SDH                         [RFC3471]
+   17   Bit synchronous mapping of DS1/T1      SDH                         [RFC3471]
+   18   Byte synchronous mapping of DS1/T1     SDH                         [RFC3471]
+   19   VC-11 in VC-12                         SDH                         [RFC3471]
+   20   Reserved                                                           [RFC3471]
+   21   Reserved                                                           [RFC3471]
+   22   DS1 SF Asynchronous                    SONET                       [RFC3471]
+   23   DS1 ESF Asynchronous                   SONET                       [RFC3471]
+   24   DS3 M23 Asynchronous                   SONET                       [RFC3471]
+   25   DS3 C-Bit Parity Asynchronous          SONET                       [RFC3471]
+   26   VT/LOVC                                SDH                         [RFC3471]
+   27   STS SPE/HOVC                           SDH                         [RFC3471]
+   28   POS - No Scrambling, 16 bit CRC        SDH                         [RFC3471]
+   29   POS - No Scrambling, 32 bit CRC        SDH                         [RFC3471]
+   30   POS - Scrambling, 16 bit CRC           SDH                         [RFC3471]
+   31   POS - Scrambling, 32 bit CRC           SDH                         [RFC3471]
+   32   ATM mapping                            SDH, G.709 ODUk             [RFC3471],[RFC4328]
+   33   Ethernet PHY                           SDH, G.709 OCh, Lambda,     [RFC3471],[RFC4328]
+                                               Fiber 
+   34   SONET/SDH                              G.709 OCh, Lambda, Fiber    [RFC3471],[RFC4328]
+   35   Reserved (SONET deprecated)            G.709 OCh, Lambda, Fiber    [RFC3471],[RFC4328]
+   36   Digital Wrapper                        Lambda, Fiber               [RFC3471]
+   37   Lambda                                 Fiber                       [RFC3471]
+   38   ANSI/ETSI PDH                          SDH                         [RFC3471]
+   39   Reserved                               SDH                         [RFC3471]
+   40   Link Access Protocol SDH               SDH                         [RFC3471]
+                (LAPS - X.85 and X.86)
+   41   FDDI                                   SDH, Lambda, Fiber          [RFC3471]
+   42   DQDB (ETSI ETS 300 216)                SDH                         [RFC3471]
+   43   FiberChannel-3 (Services)              FiberChannel                [RFC3471]
+   44   HDLC                                   SDH                         [RFC3471]
+   45   Ethernet V2/DIX (only)                 SDH, Lambda, Fiber          [RFC3471]
+   46   Ethernet 802.3 (only)                  SDH, Lambda, Fiber          [RFC3471]
+   47   G.709 ODUj                             G.709 ODUk (with k > j)     [RFC4328]
+   48   G.709 OTUk(v)                          G.709 OCh                   [RFC4328]
+                                               ODUk mapped into OTUk(v) 
+   49   CBR/CBRa                               G.709 ODUk, G.709 OCh       [RFC4328]
+   50   CBRb                                   G.709 ODUk                  [RFC4328] 
+   51   BSOT                                   G.709 ODUk                  [RFC4328] 
+   52   BSNT                                   G.709 ODUk                  [RFC4328]
+   53   IP/PPP (GFP)                           G.709 ODUk (and SDH)        [RFC4328] 
+   54   Ethernet MAC (framed GFP)              G.709 ODUk (and SDH)        [RFC4328]
+   55   Ethernet PHY (transparent GFP)         G.709 ODUk (and SDH)        [RFC4328]
+   56   ESCON                                  G.709 ODUk, Lambda, Fiber   [RFC4328]
+   57   FICON                                  G.709 ODUk, Lambda, Fiber   [RFC4328]
+   58   Fiber Channel                          G.709 ODUk, Lambda, Fiber   [RFC4328] 
+
+
+
+
+References
+----------
+[RFC3471]  L. Berger, "Generalized Multi-Protocol Label Switching (GMPLS)
+           Signaling Functional Description", RFC 3471, January 2003.
+
+[RFC4201]  K. Kompella, Y. Rekhter, and L. Berger, "Link Bundling in MPLS 
+           Traffic Engineering", RFC 4201, October 2005.
+ 
+[RFC4328]  D. Papadimitriou, Ed., "Generalized MPLS (GMPLS) Signaling 
+           Extensions for G.709 Optical Transport Networks Control",
+           RFC 4328, January 2006.
+
+[RFC4783]  Lou Berger, Ed., "GMPLS - Communication of Alarm Information",
+           RFC 4783, December 2006.
+           
+[RFC-ietf-ccamp-gmpls-recovery-e2e-signaling-04.txt]
+           L.P. Lang, Y. Rekhter, and D. Papadimitriou, "RSVP-TE Extensions
+           in support of End-to-End Generalized Multi-Protocol Label 
+           Switching (GMPLS) Recovery", RFC XXXX, Month, Year
+           
+[RFC-ietf-ccamp-gmpls-segment-recovery-03.txt]           
+           Lou Berger, Igor Bryskin, Dimitri Papadimitriou, and Adrian Farrel,
+           "GMPLS Based Segment Recovery", RFC XXXX, Month Year
+ 
+(registry created 2002-11-08)
+
+[]

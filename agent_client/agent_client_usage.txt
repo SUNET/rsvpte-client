@@ -1,0 +1,53 @@
+uni-mupbed:~/Projects/agent_client # ./agent_client.py
+-----------------------------------------------------------------------
+The agent client usage:
+
+1) Path creation:    ./agent_client.py create -tun_id <tunel_id> -dst <dest_addr> [other parameters,...]
+2) Path deletion:    ./agent_client.py delete -tun_id <tunel_id>
+3) Status query:     ./agent_client.py status [-tun_id <tunel_id>]
+
+Available parameters:
+  -call_id_1      <int>         call id - part 1
+  -call_id_2      <int>         call id - part 2
+  -dst            <ip_addr>     rsvp session destination address
+  -dst_tna        <ip_addr>     destination TNA
+  -enc            <int>         lsp encoding type
+  -ero            <ip_addr>     ERO address
+  -ero_pref_len   <int>         ERO prefix length
+  -ero_sl         <int>         ERO strict/loose
+  -err_code       <int>         error code
+  -err_flag       <int>         error flags
+  -err_node       <ip_addr>     error node address
+  -err_val        <int>         error value
+  -eth_cbr        <int>         ethernet committed burst size
+  -eth_cir        <int>         ethernet committed information rate
+  -eth_ebs        <int>         ethernet excess burst size
+  -eth_eir        <int>         ethernet excess information rate
+  -eth_granuality <int>         type of ethernet link
+  -eth_index      <int>         index of bandwidth allocated for given QoS
+  -eth_profile    <int>         flags of color mode and coupling
+  -gpid           <int>         lsp gpid
+  -hold_prior     <int>         hold priority
+  -hop            <ip_addr>     RSVP Hop address (deprecated)
+  -interface_id   <int>         data forward/reverse interface id
+  -lsp_id         <int>         sender LSP id
+  -mpart_count    <int>         multiple part message - total packet count (N) (STATUS ACK/NACK only
+  -mpart_number   <int>         multiple part message - packet number (0..N-1) (STATUS ACK/NACK only)
+  -name           <string>      path name
+  -out_if_addr    <ip_addr>     agent's outgoing interface (HOP neighbor address)
+  -path_state     <int>         path state (STATUS ACK only)
+  -peak_rate      <int>         peak data rate
+  -refresh        <int>         path refresh period
+  -service_lvl    <int>         protection service level
+  -setup_prior    <int>         setup priority
+  -src            <ip_addr>     rsvp session source address (extended tunnel id)
+  -src_tna        <ip_addr>     source TNA
+  -switch_type    <int>         lsp switching type
+  -tb_rate        <int>         token bucket rate
+  -tb_size        <int>         token bucket size
+  -traff_dst      <ip_addr>     traffic destination address (for data plane only)
+  -traff_rev_dst  <ip_addr>     traffic reverse destination address (for data plane only)
+  -tun_id         <int>         tunnel id
+  -up_label       <int>         upstream label (for bidirectional paths)
+-----------------------------------------------------------------------
+

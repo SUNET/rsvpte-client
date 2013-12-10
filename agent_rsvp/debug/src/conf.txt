@@ -1,0 +1,36 @@
+#----------------------------------------------------------------------------
+# configuration is readed from active section
+# if some configuration parameters are not in this section
+# then those parameters are searched in global scope of this config file
+#----------------------------------------------------------------------------
+
+# section name to activation
+active_section = PSNC_DT_test_OIFUNI20
+
+#-------------------------------------
+# this is the section
+#-------------------------------------
+[PSNC_DT_test_OIFUNI20]
+protocol_vers           = OIFUNI20         # IETF_RSVP, OIFUNI10, OIFUNI20
+rsvp_local_if_addr      = 192.168.135.254  # ip addr
+rsvp_local_if_name      = eth0             # interface name
+rsvp_router_addr        = 10.131.12.7      # ip addr
+report_paths_interval   = 3600             # sec
+debug_send_addr         = 150.254.160.196  # ip_addr
+#default_path_dest      = 10.131.200.3     # ip_addr
+path_setup_timeout      = 30               # sec
+management_port         = 35000            # TCP port number
+
+#-------------------------------------
+# this is the section
+#-------------------------------------
+[psnc_rsvp_testbed_1]
+protocol_vers           = IETF_RSVP        # IETF_RSVP, OIFUNI10, OIFUNI20
+rsvp_local_if_addr      = 10.136.136.254   # ip addr
+rsvp_local_if_name      = eth1             # interface name
+rsvp_router_addr        = 10.136.136.7     # ip addr
+report_paths_interval   = 3600             # sec
+path_setup_timeout      = 3                # sec
+default_path_dest       = 10.136.136.7     # ip_addr
+management_port         = 35000            # TCP port number
+

@@ -1,0 +1,1 @@
+./agent_client.py create -tun_id 3 -dst 10.131.12.7 -dst_tna 131.12.1.10 -src_tna 131.12.3.5 -interface_id 1000 -eth_cir 31250000 -up_label 0xFFFFFFFF -switch_type 0x33 -enc 0x02 -gpid 0x0021

@@ -1,0 +1,10 @@
+Project was developped in KDevelop C++.
+
+File "conf.txt" (you can find it in ./config) must be inserted 
+in folder with agent_rsvp executable (please see ./debug/src).
+
+The executable must be running with root privileges because it uses
+raw network sockets.
+
+
+

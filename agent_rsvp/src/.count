@@ -1,0 +1,6 @@
+echo -n "Bytes: "
+cat agent_rsvp.cpp configuration.h generic_interface.cpp generic_interface.h ip_mask.cpp ip_mask.h ip_route.cpp ip_route.h mgmt_interface.cpp mgmt_interface.h mgmt_packet.cpp mgmt_packet.h mpls_ioctl.cpp mpls_ioctl.h rsvp_configuration.cpp rsvp_configuration.h rsvp_connection.cpp rsvp_connection.h rsvp_dispatcher.cpp rsvp_dispatcher.h rsvp_error.cpp rsvp_error.h rsvp_packet.cpp rsvp_packet.h rsvp_socket.cpp rsvp_socket.h semaphore.cpp semaphore.h tools.cpp tools.h verbose.cpp verbose.h | wc -c
+echo -n "Lines: "
+cat agent_rsvp.cpp configuration.h generic_interface.cpp generic_interface.h ip_mask.cpp ip_mask.h ip_route.cpp ip_route.h mgmt_interface.cpp mgmt_interface.h mgmt_packet.cpp mgmt_packet.h mpls_ioctl.cpp mpls_ioctl.h rsvp_configuration.cpp rsvp_configuration.h rsvp_connection.cpp rsvp_connection.h rsvp_dispatcher.cpp rsvp_dispatcher.h rsvp_error.cpp rsvp_error.h rsvp_packet.cpp rsvp_packet.h rsvp_socket.cpp rsvp_socket.h semaphore.cpp semaphore.h tools.cpp tools.h verbose.cpp verbose.h | wc -l
+ 
+
