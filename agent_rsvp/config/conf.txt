@@ -5,7 +5,21 @@
 #----------------------------------------------------------------------------
 
 # section name to activation
-active_section = PSNC_DT_test_OIFUNI20
+active_section = 2832
+
+#-------------------------------------
+# this is the section
+#-------------------------------------
+[2832]
+protocol_vers           = IETF_RSVP        # IETF_RSVP, OIFUNI10, OIFUNI20
+rsvp_local_if_addr      = 10.0.0.10        # ip addr
+rsvp_local_if_name      = ens3             # interface name
+rsvp_router_addr        = 193.10.255.2     # ip addr
+report_paths_interval   = 3600             # sec
+debug_send_addr         = 127.0.0.1        # ip_addr
+default_path_dest       = 193.10.255.2     # ip_addr
+path_setup_timeout      = 30               # sec
+management_port         = 35000            # TCP port number
 
 #-------------------------------------
 # this is the section

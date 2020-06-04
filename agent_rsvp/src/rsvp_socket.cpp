@@ -86,11 +86,13 @@ rsvp_socket::~rsvp_socket()
 void rsvp_socket::init()
 {
     int t;
+
     for(t=0;t<256;t++)
     {
         recv_buffer[t] = NULL;
         recv_buffer_size[t] = 0;
     }
+
     recv_buffer_count = 0;
     socket_desc = -1;
     run_socket();
@@ -161,7 +163,27 @@ int rsvp_socket::send(unsigned int remote_addr, void* buffer, int size)
 
     VERBOSE(7, "sendto: socket_desc %d, size %d, sizeof(rem_addr) %d\n", socket_desc, size, sizeof(rem_addr));
     if((t = sendto(socket_desc, buffer, size, 0, (struct sockaddr*)&rem_addr, sizeof(rem_addr))) != size)
+    {
+            VERBOSE(7, "errno catching\n");
+            switch(errno)
+            {
+            case EBADF:
+                VERBOSE(3, "An invalid file descriptor was given in one of the sets\n");
+                break;
+            case EINTR:
+                VERBOSE(3, "A non blocked signal was caught\n");
+                break;
+            case EINVAL:
+                VERBOSE(3, "An socket_desc is negative or the value contained within timeout is invalid\n");
+                break;
+            case ENOMEM:
+                VERBOSE(3, "select was unable to allocate memory for internal tables\n");
+                break;
+            default:
+                VERBOSE(3, "value of errno is %i\n", errno);
+	    } 
         return ERROR_PACKET_SEND;
+    }
     VERBOSE(7, "sendto said %d\n", t);
 
     if(strlen(globals.debug_send_addr) != 0)

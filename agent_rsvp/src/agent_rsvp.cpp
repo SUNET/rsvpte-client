@@ -36,6 +36,7 @@
 #include "mgmt_interface.h"
 #include "semaphore.h"
 #include "ip_mask.h"
+#include <iostream>
 
 //===============================================================================
 /* globals for all files of the rsvp agent */
@@ -108,7 +109,7 @@ int main(int argc, char *argv[])
         //    VERBOSE(2, " %s/%d\n", int_2_addr(ipm.get_addr(t)), ipm.get_mask(t));
     }
     VERBOSE(1, "\n");
-    
+
     dispatcher = new rsvp_dispatcher(globals.rsvp_local_if_addr, ipm);
 
     /* label space for eth interface */
@@ -118,7 +119,7 @@ int main(int argc, char *argv[])
     	mgmt = new mgmt_interface(dispatcher);
     else
     	mgmt = new mgmt_interface(dispatcher, inet_addr("127.0.0.1"));  // used for UNI proxy - second side
-   
+
     while(1)
     {
         sleep(globals.report_paths_interval);

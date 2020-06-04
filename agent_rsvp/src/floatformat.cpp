@@ -21,12 +21,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.  */
 #include <math.h>		/* ldexp */
 #ifdef __STDC__
 #include <stddef.h>
-extern void *memcpy (void *s1, const void *s2, size_t n);
-extern void *memset (void *s, int c, size_t n);
-#else
-extern char *memcpy ();
-extern char *memset ();
+//extern void *memcpy (void *s1, const void *s2, size_t n);
+//extern void *memset (void *s, int c, size_t n);
+//#else
+//extern char *memcpy ();
+//extern char *memset ();
 #endif
+#include <string.h>
 
 /* The odds that CHAR_BIT will be anything but 8 are low enough that I'm not
    going to bother with trying to muck around with whether it is defined in
@@ -149,12 +150,6 @@ const struct floatformat floatformat_ia64_quad_little =
   "floatformat_ia64_quad_little"
 };
 
-static unsigned long get_field PARAMS ((unsigned char *,
-					enum floatformat_byteorders,
-					unsigned int,
-					unsigned int,
-					unsigned int));
-
 /* Extract a field which starts at START and is LEN bytes long.  DATA and
    TOTAL_LEN are the thing we are extracting it from, in byteorder ORDER.  */
 static unsigned long
@@ -272,12 +267,6 @@ floatformat_to_double (
     dto = -dto;
   *to = dto;
 }
-
-static void put_field PARAMS ((unsigned char *, enum floatformat_byteorders,
-			       unsigned int,
-			       unsigned int,
-			       unsigned int,
-			       unsigned long));
 
 /* Set a field which starts at START and is LEN bytes long.  DATA and
    TOTAL_LEN are the thing we are extracting it from, in byteorder ORDER.  */

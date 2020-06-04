@@ -29,7 +29,8 @@
 #include <string.h>
 
 // verbosity level (only messages with level set to value lower or equal to VERBOSE_LEVEL will be printed)
-#define VERBOSE_LEVEL                   5
+//#define VERBOSE_LEVEL                   5
+#define VERBOSE_LEVEL                   15
 
 // non-zero if we want to see info about the file, line and function, in which the call to VERBOSE took place
 #define VERBOSE_LINES                   0

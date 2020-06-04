@@ -39,8 +39,10 @@ void ip_route::add_mpls_route(unsigned int target, unsigned int via, unsigned in
     if(fork() == 0)
     {
         VERBOSE(4, "ip_route: adding mpls route\n");
-        VERBOSE(5, "ip route add %s via %s spec_nh 0x8847 %s\n", target_buf, via_buf, key_buf);
-        execlp("ip", "ip", "route", "add", target_buf, "via", via_buf, "spec_nh", "0x8847", key_buf, NULL);
+        //VERBOSE(5, "ip route add %s via %s spec_nh 0x8847 %s\n", target_buf, via_buf, key_buf);
+        //execlp("ip", "ip", "route", "add", target_buf, "via", via_buf, "spec_nh", "0x8847", key_buf, NULL);
+        VERBOSE(5, "ip route %s encap mpls %s via inet %s\n", target_buf, key_buf, via_buf);
+        execlp("ip", "ip", "route", "add", target_buf, "encap mpls", key_buf, "via inet", via_buf, NULL);
         VERBOSE(0, "ip_route: error: %s\n", strerror(errno));
         exit(0);
     }

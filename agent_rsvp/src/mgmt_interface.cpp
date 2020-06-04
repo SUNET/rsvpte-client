@@ -652,7 +652,7 @@ int mgmt_interface::ask_gui(int conn_id, rsvp_configuration config, int msg_type
 bool mgmt_interface::add_path(pending_rsvp_packet* pend_pack)
 {
     rsvp_configuration*  conf       = &pend_pack->conf;
-    
+    VERBOSE(8, "mgmt_interface::path_count :%i\n", paths_count); 
     if(paths_count >= MAX_MGMT_PATHS)
     	return false;
 
@@ -663,7 +663,7 @@ bool mgmt_interface::add_path(pending_rsvp_packet* pend_pack)
     path->conf         = pend_pack->conf;
     path->conn_id      = pend_pack->cid;
     
-    if(paths_count == 0)
+    if(paths_count > 0)
     {
     	/* if the last path is equal to a new there is no need to save a new one */
     	path_elem* path_prev    = &paths[paths_count-1];

@@ -43,12 +43,12 @@ rsvp_globals::rsvp_globals()
 void rsvp_globals::init()
 {
     protocol_vers           = -1;
-    rsvp_local_if_addr      = "";
-    rsvp_local_if_name      = "";
-    rsvp_router_addr        = "";
+    //rsvp_local_if_addr      = "";
+    //rsvp_local_if_name      = "";
+    //rsvp_router_addr        = "";
     report_paths_interval   = -1;
-    debug_send_addr	        = "";
-    default_path_dest       = "";
+    //debug_send_addr	     = "";
+    //default_path_dest       = "";
     path_setup_timeout      = -1;
     management_port         = 0;
     
@@ -78,12 +78,40 @@ bool rsvp_globals::load_configuration()
 
     /* reading configuration parameters to program variables */
     string _protocol_vers   = string(c("protocol_vers", ""));
-    rsvp_local_if_addr      = c("rsvp_local_if_addr", "");
-    rsvp_local_if_name      = c("rsvp_local_if_name", "");
-    rsvp_router_addr        = c("rsvp_router_addr", "");
+
+    string tmp    = c("rsvp_local_if_addr", "");
+    const size_t len = strlen(tmp.c_str());
+    char * tmp_v = new char[len +1];
+    strncpy(tmp_v, tmp.c_str(), len+1);
+    rsvp_local_if_addr = tmp_v;
+
+    string tmp2     = c("rsvp_local_if_name", "");
+    const size_t len2 = strlen(tmp2.c_str());
+    char * tmp2_v = new char[len2 +1];
+    strncpy(tmp2_v, tmp2.c_str(), len2+1);
+    rsvp_local_if_name      = tmp2_v;
+
+    string tmp3        = c("rsvp_router_addr", "");
+    const size_t len3 = strlen(tmp3.c_str());
+    char * tmp3_v = new char[len3 +1];
+    strncpy(tmp3_v, tmp3.c_str(), len3+1);
+    rsvp_router_addr      = tmp3_v;
+
     report_paths_interval   = c("report_paths_interval", -1);
-    debug_send_addr         = c("debug_send_addr", "");
-    default_path_dest       = c("default_path_dest", "");
+
+    string tmp4         = c("debug_send_addr", "");
+    const size_t len4 = strlen(tmp4.c_str());
+    char * tmp4_v = new char[len4 +1];
+    strncpy(tmp4_v, tmp4.c_str(), len4+1);
+    debug_send_addr      = tmp4_v;
+
+    string tmp5       = c("default_path_dest", "");
+    const size_t len5 = strlen(tmp5.c_str());
+    char * tmp5_v = new char[len5 +1];
+    strncpy(tmp5_v, tmp5.c_str(), len5+1);
+    default_path_dest      = tmp5_v;
+
+
     path_setup_timeout      = c("path_setup_timeout", -1);
     management_port         = c("management_port", 0);
 

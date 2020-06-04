@@ -598,9 +598,9 @@ void rsvp_connection::respond_resv(rsvp_configuration* packet_conf)
     key = mpls.set_out_label(label, globals.rsvp_local_if_name,
             *((unsigned int*)packet_conf->read(RC_CONTROL_OUT_IF_ADDR)));
 
-    VERBOSE(7, "going to add mpls route\n");
+    VERBOSE(7, "going to add mpls route label %i\n", label);
     ip_route ipr;
-    ipr.add_mpls_route(dest_address, resolve_router_addr(*packet_conf), key);
+    ipr.add_mpls_route(dest_address, resolve_router_addr(*packet_conf), label);
     VERBOSE(7, "mpls route added\n");
 
     // respond with RESV_CONF
@@ -917,10 +917,10 @@ void rsvp_connection::adding_create_path_objects(rsvp_packet* mes, rsvp_configur
         mes->add_object(CLASS_SESSION_IETF);
         
         /* different switching types require different HOP object versions */
-        //if(switching_type >= 100)
+        if(switching_type >= 100)
             mes->add_object(CLASS_IPV4_IF_ID_RSVP_HOP); /* no-packet switching */
-        //else
-        //    mes->add_object(CLASS_IPV4_RSVP_HOP); /* packet switching */
+        else
+            mes->add_object(CLASS_IPV4_RSVP_HOP); /* packet switching */
         mes->add_object(CLASS_TIME_VALUES);
         mes->add_object(CLASS_SESSION_ATTRIBUTE);
         mes->add_object(CLASS_TOKEN_SENDER_TSPEC);
@@ -962,7 +962,7 @@ void rsvp_connection::adding_create_path_objects(rsvp_packet* mes, rsvp_configur
 int rsvp_connection::create_path(unsigned int router_addr)
 {
     access.wait();
-    VERBOSE(1, "creating path\n");
+    VERBOSE(1, "creating path via router %s\n", globals.rsvp_router_addr);
 
     router_address  = router_addr;
     path_direction  = DIRECTION_OUTGOING;
@@ -1311,8 +1311,9 @@ void rsvp_connection::send_rsvp_message(rsvp_packet* packet, int mtype, int dest
     VERBOSE(6, "trying to send a packet to dest_addr of %s, data size is %d\n",
              int_2_addr(dest_addr), data_size);
 
-    if(dispatcher->send(*data, data_size, dest_addr) < 0)
-        {VERBOSE(0, "dispatcher couldn't send the packet\n");}
+    int sent_error = dispatcher->send(*data, data_size, dest_addr);
+    if ( sent_error < 0) 
+        {VERBOSE(0, "dispatcher couldn't send the packet %i\n", sent_error);}
     else if (mtype != MTYPE_ACK)   /* ack message don't increment a counter */
         globals.inc_message_id();   /* message has been sended
                                        and we are able to increment a counter */

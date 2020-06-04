@@ -53,6 +53,7 @@ rsvp_dispatcher::rsvp_dispatcher(unsigned int local_addr, ip_mask ipm)
 
 void rsvp_dispatcher::init(unsigned int local_addr)
 {
+
     int t;
     socket = new rsvp_socket(local_addr, ipm_allowed_addrs);
     for(t=0;t<MAX_REGISTERED_CONNS;t++)
@@ -84,7 +85,7 @@ void* rsvp_dispatcher::receiver_thread(void* arg)
     struct timeval tv;
     int retv;
     rsvp_dispatcher* o;
-    
+
     tv.tv_sec = 0;
     tv.tv_usec = 0;
 

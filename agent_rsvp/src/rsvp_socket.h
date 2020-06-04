@@ -45,10 +45,10 @@ class rsvp_socket
 {
 private:
     unsigned int local_address;
-    void* recv_buffer[256];			// receive buffers
+    void* recv_buffer[256];		// receive buffers
     int recv_buffer_size[256];		// receive buffers size
     unsigned int recv_buffer_count; 
-    int socket_desc;				// socket descriptor
+    int socket_desc;			// socket descriptor
     ip_mask ipm_allowed_addrs;		// allowed dest ip addresses for incoming packets
 
     int run_socket();

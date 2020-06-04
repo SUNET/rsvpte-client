@@ -39,7 +39,7 @@ class ip_route;
 
 /* if you have no mpls-linux installed and you wish to complile this code
    then uncomment macro or add gcc compiler flag: -D__LINUX_MPLS_ABSENCE__ */
-#define __LINUX_MPLS_ROUTING_ABSENCE__
+//#define __LINUX_MPLS_ROUTING_ABSENCE__
 
 class ip_route
 {
