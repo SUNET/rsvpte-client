@@ -31,8 +31,12 @@ extern rsvp_globals globals;
 //------------------------------------------------------------------------------
 
 void rsvp_connection::adding_resv_objects(rsvp_packet* resv)
-{   
-    unsigned char switching_type =  *(unsigned char*)path_configuration.read(RC_LSP_SWITCHING_TYPE);
+{
+    unsigned char switching_type = 0;
+    void *path_conf = path_configuration.read(RC_LSP_SWITCHING_TYPE);
+
+    if (path_conf != NULL)
+        switching_type = *((unsigned char *)path_conf);
 
     if(globals.protocol_vers == IETF_RSVP)
     {
@@ -80,7 +84,7 @@ rsvp_connection::rsvp_connection(rsvp_dispatcher* disp, unsigned short conn_id, 
     connection_id   = conn_id;
     
     configuration.setadd(RC_TUNNEL_ID, (unsigned short)conn_id);
-    VERBOSE(6, "tunnel ID set\n");
+    VERBOSE(6, "tunnel ID(%i) set\n", conn_id);
 
     create_refresh_thread();
 }
@@ -93,7 +97,7 @@ rsvp_connection::rsvp_connection(rsvp_dispatcher* disp, rsvp_configuration conf)
 
     VERBOSE(7, "trying to read tunnel id...\n");
     connection_id = *((unsigned short*)configuration.read(RC_TUNNEL_ID));
-    VERBOSE(7, "tunnel id read\n");
+    VERBOSE(7, "tunnel id(%i) read\n", connection_id);
 
     create_refresh_thread();
 }
